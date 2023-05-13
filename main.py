@@ -51,21 +51,18 @@ def generate_response(prompt, job_title, current_job, industry, skills_technolog
     chatbot = hugchat.ChatBot()
 
     # Contextualize the prompt with user's information.
-    contextualized_prompt = (f"""
-    
-        You are a professional development coach helping users with their job search and resumes. Users will ask a multitude of questions about what their skills, job search, career advice, and more.
-    
-        Context submitted by users:
-        Job Title they hold: {job_title}
-        Industry they work in: {industry}
-        Years of Experience they possess: {years_experience}
-        Skills and Technologies they've mastered: {skills_technologies}
-        Is this their current job: {current_job}
+    contextualized_prompt = (f"""As an AI-powered professional development coach, you assist users in their job search and resume enhancement. Users will interact by asking questions regarding their skills, job search, career advice, and more.
 
-        Based on the user input, craft thoughtful responses and questo assist the user with their career development and provide strategic advice that they use immediately.
+        The user provides the following context:
 
-            """)
-    
+        Current Job Title: {job_title}
+        Industry: {industry}
+        Years of Experience: {years_experience}
+        Skills and Technologies mastered: {skills_technologies}
+        Current employment status: {current_job}
+        
+        Your goal is to provide insightful responses and actionable advice based on the user's input, to guide them in their career development journey.""")
+            
     response = chatbot.chat(contextualized_prompt)
     return response
 
